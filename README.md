@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Upkeeper App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An app that connects homeowners with cleaners.
+
+# Screenshots
+
+![front page](https://github.com/Kagin007/upkeeper/blob/master/screenshots/front-app.png?raw=true)
+
+![register](https://github.com/Kagin007/upkeeper/blob/master/screenshots/error-handling.png?raw=true)
+
+![find cleaner](https://github.com/Kagin007/upkeeper/blob/master/screenshots/find-cleaner.png?raw=true)
+
+![add property](https://github.com/Kagin007/upkeeper/blob/master/screenshots/create-listing.png?raw=true)
+
+![reservations](https://github.com/Kagin007/upkeeper/blob/master/screenshots/reservations.png?raw=true)
 
 ## Available Scripts
 
