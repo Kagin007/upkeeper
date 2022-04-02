@@ -1,0 +1,491 @@
+:root {
+  --primary-color: #495371;
+  --secondary-color: #74959a;
+  --tertiary-color: #98b4aa;
+  --danger-red-color: #fc4f4f;
+  --light-color-bg: #f9e2b6;
+  --light-color-text: #f3e9dd;
+}
+
+.App {
+  margin: 0;
+}
+
+.section-cleaner-list {
+  display: flex;
+  flex-direction: row;
+}
+.backdrop {
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(73, 83, 113, 0.7);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+.modal {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: var(--light-color-text);
+  padding: 2em;
+  text-align: center;
+  width: 65%;
+  max-height: 80%;
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+}
+.modal-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.modal-exit {
+  position: absolute;
+  top: 1.5em;
+  left: 2em;
+  z-index: 11;
+  color: var(--primary-color);
+}
+.modal-exit:hover {
+  color: var(--danger-red-color);
+}
+
+.nav__bar {
+  background: var(--light-color-bg);
+}
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+.nav__logo {
+  text-align: center;
+  padding: 0.8em;
+  margin: 0;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 3.5em;
+  color: var(--primary-color);
+  background-color: #f9e2b6;
+background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  letter-spacing: 0.2em;
+}
+.nav__options {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: var(--tertiary-color);
+  padding: 1em 0;
+  color: var(--light-color-text);
+
+background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.nav__options--link {
+  list-style-type: none;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+.nav__options--link:hover {
+  color: var(--primary-color);
+}
+
+.searchform {
+  padding: 1em 2em 3em;
+  background-color: var(--tertiary-color);
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(73, 83, 113, 0.5) 0px 13.5px 36px 0px;
+  color: var(--light-color-text);
+  position: relative;
+
+background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.primary-input {
+  margin: 0 1em;
+  background: rgba(73, 83, 113, 0.2);
+  border-style: none;
+  height: 2em;
+  padding: 0.1em 1em;
+  border-radius: 20px;
+  color: var(--light-color-text);
+}
+.primary-select {
+  margin: 0 1em;
+  background: rgba(73, 83, 113, 0.2);
+  border-style: none;
+  height: 2em;
+  padding: 0.1em 1em;
+  border-radius: 20px;
+  color: var(--light-color-text);
+}
+
+.primary-input-dark {
+  color: var(--primary-color);
+}
+.primary-select-dark {
+  color: var(--primary-color);
+}
+.primary-input::placeholder {
+  color: var(--light-color-text);
+}
+.primary-input:focus {
+  outline: none;
+}
+
+.primary-btn {
+  background-color: var(--primary-color);
+  border-style: none;
+  opacity: 0.8;
+  border-radius: 20px;
+  height: 2em;
+  padding: 0.1em 1em;
+  color: var(--light-color-text);
+  backface-visibility: hidden;
+}
+
+.primary-btn:hover {
+  background-color: rgba(73, 83, 113, 0.7);
+}
+
+.user {
+  background-color: var(--light-color-bg);
+  width: 8em;
+  height: 8em;
+  shape-outside: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  position: relative;
+  margin: 0;
+}
+.user-photo {
+  height: 100%;
+  transition: all 0.5s;
+}
+.user-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-45%, 10%);
+  color: var(--light-color-bg);
+  font-size: 1em;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.user:hover .user-caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.user:hover .user-photo {
+  filter: blur(0.1rem) brightness(30%);
+}
+
+/* later this will change to a different case instead of hover */
+/* .cleaner__card__article:hover .cleaner__card__front {
+  transform: rotateX(-180deg);
+  transition: all 0.8s;
+}
+.cleaner__card__article:hover .cleaner__card__back {
+  transform: rotateX(0);
+  transition: all 0.8s;
+} */
+.cleaner__card__back__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.cleaner__card__booking-selected .cleaner__card__front {
+  transform: rotateX(-180deg);
+  transition: all 0.8s;
+}
+.cleaner__card__booking-selected .cleaner__card__back {
+  transform: rotateX(0);
+  transition: all 0.8s;
+}
+.cleaner__card__back {
+  transform: rotateX(180deg);
+}
+.cleaner__card__article {
+  perspective: 150rem;
+  position: relative;
+  height: 16em;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 4em;
+}
+.cleaner__card {
+  width: 93%;
+  border-radius: 10px;
+  padding: 1.5em;
+  box-shadow: rgba(73, 83, 113, 0.5) 0px 13.5px 36px 0px;
+  transition: all 0.8s ease;
+  perspective: 150rem;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+.cleaner__card header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.cleaner__card p {
+  margin: 0;
+}
+.cleaner__card main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cleaner__card:hover {
+  background: rgba(249, 226, 182, 0.2);
+  border-radius: 10px;
+  transition: all 0.8s ease-out;
+}
+.cleaner__card--message {
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  border-radius: 100px;
+  margin: 0 auto;
+}
+.cleaner__card--message i {
+  margin-right: 0.5em;
+}
+.cleaner__card--message:hover {
+  background-color: var(--tertiary-color);
+  transition: all 0.3s;
+}
+
+.cleaner__card__bottom {
+  display: flex;
+  padding: 0.5em;
+  flex-direction: row;
+  margin: 0;
+  justify-content: space-between;
+  border-top: 1px solid var(--secondary-color);
+}
+.cleaner__card__top {
+  display: flex;
+  justify-content: space-between;
+}
+.cleaner__card--star {
+  transform: translateY(2px);
+}
+
+.cleaner__card--review-user {
+  margin: 0;
+}
+.cleaner__card--review {
+  max-width: 50ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9em;
+}
+
+.cleaner__card__middle {
+  margin: 0 1em;
+}
+.cleaner__card--transport {
+  font-size: 0.8em;
+  max-width: 22ch;
+  text-align: center;
+}
+.cleaner__card--payrate {
+  text-align: center;
+}
+
+.cleaner__card--review-date {
+  font-size: 0.6em;
+  color: var(--primary-color);
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 8em;
+  left: 25%;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  padding: 1em;
+  margin: 0;
+  z-index: 10;
+}
+.search-suggestion-item {
+  list-style-type: none;
+  padding: 0.1em;
+  z-index: 2;
+}
+.search-suggestion-item:hover {
+  color: var(--primary-color);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+.wave {
+  width: 5px;
+  height: 50px;
+  background: linear-gradient(
+    85deg,
+    var(--secondary-color),
+    var(--light-color-bg)
+  );
+  margin: 10px;
+  animation: wave 1s linear infinite;
+  border-radius: 20px;
+}
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.wave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.wave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.wave:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.wave:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.wave:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.wave:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.wave:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.reservation__card {
+  width: 85%;
+  background: rgba(152, 180, 170, 0.2);
+  margin: 1em auto;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 12em;
+}
+
+.reservation__card:hover {
+  transform: translateY(-2px);
+}
+
+.user-sm {
+  background-color: var(--light-color-bg);
+  width: 4em;
+  height: 4em;
+  shape-outside: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  position: relative;
+  margin: 0;
+  margin-right: 1em;
+}
+
+.reservation__card--propertyimg {
+  width: 18em;
+}
+.reservation__card--figure {
+  margin: 0;
+  padding: 0;
+}
+
+.reservation__card--left header {
+  display: flex;
+}
+.reservation__card--left {
+  padding: 1em;
+}
+.reservation__card--right {
+  box-sizing: border-box;
+  display: inline-block;
+}
+.reservation__date {
+  margin: 0;
+}
+
+.profile-pic {
+  border-radius: 50px;
+}
+
+.reservations__property-panel {
+  margin: 1em auto;
+  width: 85%;
+  border-radius: 20px;
+  background-color: rgba(249, 226, 182, 0.5);
+  padding: 1em;
+  box-sizing: border-box;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+li {
+  list-style-type: none;
+}
+
+.user-xsm {
+  background-color: var(--light-color-bg);
+  width: 2em;
+  height: 2em;
+  shape-outside: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  position: relative;
+  margin: 0;
+}
+
+.toast-exit {
+  position: absolute;
+  top: 1.77em;
+  left: 1em;
+  z-index: 11;
+  color: var(--primary-color);
+}
+.toast-exit:hover {
+  color: var(--danger-red-color);
+}
