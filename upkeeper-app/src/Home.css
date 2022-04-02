@@ -242,6 +242,7 @@ background-image: url("https://www.transparenttextures.com/patterns/egg-shell.pn
   top: 0;
   left: 0;
   backface-visibility: hidden;
+  background-color: white;
 }
 .cleaner__card header {
   display: flex;
